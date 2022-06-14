@@ -17,8 +17,9 @@ print("Time started: "+str(time.now()))
 print("-" * 50)
 print("PORT SCANNER IS SCANNING ")
 print(time.now())
+print("-" * 50)
 
-
+#Scanning method
 try:
     for port in range(1,65535):
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -29,3 +30,13 @@ try:
             print("The %d is open"%(port))
         s.close()
 
+#System Exits
+except KeyboardInterrupt:
+    print("Exiting script")
+    sys.exit()
+except socket.gaierror:
+    print("Host Name Could not be Resolved")
+    sys.exit()
+except socket.error:
+    print("Couldnt connect to server")
+    sys.exit()
